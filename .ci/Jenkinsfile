@@ -1,0 +1,21 @@
+@Library("jenlib") _
+
+Map<String, Object> pipelineOptions = [
+                projects: ["model-paper-mc-genetic"],
+                moduleOptions: [modules: ["ppu-toolchain"]],
+                container: [app: "dls"],
+                notificationChannel: "#RSandJJK",
+                configureInstallOptions: "--build-profile=ci"
+]
+
+if (!isTriggeredByGerrit()) {
+        pipelineOptions << [
+                        testSlurmResource: [partition: "cube", wafer: 62, "fpga-without-aout": 3],
+                        preTestHook: { configureHxCubeBitfile() },
+                        testOptions: "--test-execall -j1"
+        ]
+}
+
+withCcache() {
+        wafDefaultPipeline(pipelineOptions)
+}
