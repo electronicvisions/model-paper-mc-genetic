@@ -19,3 +19,11 @@ if (!isTriggeredByGerrit()) {
 withCcache() {
         wafDefaultPipeline(pipelineOptions)
 }
+
+// Archive plots from tests
+stage(name: "Archive Test Data and Plots") {
+        runOnSlave(label: "frontend") {
+                archiveArtifacts(artifacts: 'model-paper-mc-genetic/test_results/*',
+                                 allowEmptyArchive: true)
+        }
+}
