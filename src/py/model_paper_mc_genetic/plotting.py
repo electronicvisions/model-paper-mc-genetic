@@ -242,7 +242,7 @@ class PaperPlots:
         # Labels
         axes[0].set_xlabel(r'length constant $\lambda_\mathrm{emp}$'
                            + '\n' + r'[$\mathrm{compartments}$]')
-        axes[1].set_xlabel('amplitude $h^0$\n[MADC bits]')
+        axes[1].set_xlabel('amplitude $h^0$\n[ADC bits]')
         axes[0].set_ylabel('count')
 
         fig.tight_layout(pad=0)
@@ -304,7 +304,7 @@ class PaperPlots:
         else:
             axes.set_xlabel(r'time [$\mu$s]')
         axes.set_ylabel("Baseline subtracted\nMembrane potential\n"
-                        + r"$U_\mathrm{m}$ [MADC bits]")
+                        + r"$U_\mathrm{m}$ [ADC bits]")
 
         fig.tight_layout(pad=0)
         fig.savefig(self.save_wrapper("STA_vs_traces"))
@@ -363,7 +363,7 @@ class PaperPlots:
                             + '\n[compartments]')
 
         cb_height = _add_colorbar_beneath(fig, axes[1], mesh_amplitudes)
-        cb_height.set_label(r'amplitude $h^0$' + '\n[MADC bits]')
+        cb_height.set_label(r'amplitude $h^0$' + '\n[ADC bits]')
 
         fig.tight_layout(pad=0)
         plt.savefig(self.save_wrapper("grid_search_length_height"))
