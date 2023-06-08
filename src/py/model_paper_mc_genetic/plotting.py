@@ -242,7 +242,7 @@ class PaperPlots:
         # Labels
         axes[0].set_xlabel(r'length constant $\lambda_\mathrm{emp}$'
                            + '\n' + r'[$\mathrm{compartments}$]')
-        axes[1].set_xlabel('amplitude $h^0$\n[MADC LSB]')
+        axes[1].set_xlabel('amplitude $h^0$\n[MADC bits]')
         axes[0].set_ylabel('count')
 
         fig.tight_layout(pad=0)
@@ -304,7 +304,7 @@ class PaperPlots:
         else:
             axes.set_xlabel(r'time [$\mu$s]')
         axes.set_ylabel("Baseline subtracted\nMembrane potential\n"
-                        + r"$U_\mathrm{m}$ [MADC LSB]")
+                        + r"$U_\mathrm{m}$ [MADC bits]")
 
         fig.tight_layout(pad=0)
         fig.savefig(self.save_wrapper("STA_vs_traces"))
@@ -352,9 +352,9 @@ class PaperPlots:
         _add_contours(axes[1], df_amplitudes, lvl_amp)
 
         # Labels
-        axes[0].set_xlabel(r"$\mathrm{bias}\;g_\mathrm{l}$ [LSB]")
-        axes[1].set_xlabel(r"$\mathrm{bias}\;g_\mathrm{l}$ [LSB]")
-        axes[0].set_ylabel(r"$\mathrm{bias}\;g_\mathrm{ic}$ [LSB]")
+        axes[0].set_xlabel(r"$\mathrm{bias}\;g_\mathrm{l}$ [bits]")
+        axes[1].set_xlabel(r"$\mathrm{bias}\;g_\mathrm{l}$ [bits]")
+        axes[0].set_ylabel(r"$\mathrm{bias}\;g_\mathrm{ic}$ [bits]")
         axes[1].set_ylabel(r"")
 
         # Add colorbars for both panes
@@ -363,7 +363,7 @@ class PaperPlots:
                             + '\n[compartments]')
 
         cb_height = _add_colorbar_beneath(fig, axes[1], mesh_amplitudes)
-        cb_height.set_label(r'amplitude $h^0$' + '\n[MADC LSB]')
+        cb_height.set_label(r'amplitude $h^0$' + '\n[MADC bits]')
 
         fig.tight_layout(pad=0)
         plt.savefig(self.save_wrapper("grid_search_length_height"))
@@ -602,9 +602,9 @@ class PaperPlots:
             self._mark_solution(axs, self._get_target_df(), marker_kwargs)
 
         # Labels
-        axes[0].set_xlabel(r"$\mathrm{bias}\;g_\mathrm{l}$ [LSB]")
-        axes[1].set_xlabel(r"$\mathrm{bias}\;g_\mathrm{l}$ [LSB]")
-        axes[0].set_ylabel(r"$\mathrm{bias}\;g_\mathrm{ic}$ [LSB]")
+        axes[0].set_xlabel(r"$\mathrm{bias}\;g_\mathrm{l}$ [bits]")
+        axes[1].set_xlabel(r"$\mathrm{bias}\;g_\mathrm{l}$ [bits]")
+        axes[0].set_ylabel(r"$\mathrm{bias}\;g_\mathrm{ic}$ [bits]")
         axes[1].set_ylabel(r"")
 
         fig.tight_layout(pad=0)
